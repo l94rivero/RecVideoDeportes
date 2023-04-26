@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ar.Exception.MiException;
-import com.ar.entidades.User;
+import com.ar.entidades.Usuario;
 import com.ar.servicios.UserService;
 
 @Controller
@@ -18,7 +18,7 @@ public class UsuarioController {
 
     @GetMapping("/usuarios")
     public String listUsers(Model model) throws MiException{
-        List<User> usuarios = userService.findAllUsers() ;
+        List<Usuario> usuarios = userService.findAllUsers() ;
         model.addAttribute("usuarios", usuarios);
         return "usuarios"; // Nombre de la vista JSP o Thymeleaf
     }

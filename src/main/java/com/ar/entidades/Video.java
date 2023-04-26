@@ -5,10 +5,10 @@ import java.sql.Date;
 
 import javax.persistence.*;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 @Data
 @Entity
-@Table (name = "Video")
 public class Video implements Serializable{
 
     @Id
@@ -22,7 +22,7 @@ public class Video implements Serializable{
     private boolean disponible;
 
     @ManyToOne
-    private User usuario;
+    private Usuario usuario;
 
     @OneToMany(mappedBy = "video")
     private Descargas descarga;

@@ -20,7 +20,7 @@ public class Descargas implements Serializable{
     private Integer id;
 
     @ManyToOne
-    private User usuario;
+    private Usuario usuario;
 
     @Temporal(TemporalType.DATE)
     private Date alta;

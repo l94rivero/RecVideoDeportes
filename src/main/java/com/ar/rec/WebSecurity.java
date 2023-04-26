@@ -1,7 +1,9 @@
 package com.ar.rec;
 
 import com.ar.servicios.UserService;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -15,8 +17,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurity extends WebSecurityConfigurerAdapter {
     
-    @Autowired
-    private UserService userService;
+   @Autowired
+   @Qualifier("userService")
+    public UserService userService;
     
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
@@ -36,16 +39,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                         .loginProcessingUrl("/logincheck")
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/")
+                        .defaultSuccessUrl("/inicio")
                         .permitAll()
                 .and().logout()
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/ingresar")
+                        .logoutSuccessUrl("/login")
                         .permitAll()
                 .and().csrf()
                         .disable();
-                
-
     }
 }
 

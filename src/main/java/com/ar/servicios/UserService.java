@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.ar.Exception.MiException;
-import com.ar.entidades.User;
+import com.ar.entidades.Usuario;
 import com.ar.entidades.Video;
 import com.ar.repositorios.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,19 +20,17 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 public class UserService implements UserDetailsService {
 
     // Inject an instance of a class
-    @Autowired
-    private UserRepository userRepository;
+    @Autowired(required=false)
+    @Qualifier("userRepository")
+    private UserRepositoryImpl userRepository;
     
-    private User usuario;
 
-    // Method to create a new User
+    // Method to create a new Usuario
     @Transactional
-    public User createUser(String nombre, String apellido, Integer dni, String email, Integer telefono,
+    public Usuario createUser(String nombre, String apellido, Integer dni, String email, Integer telefono,
             String contrasenia, String contrasenia2, Integer saldo) throws MiException {
-
         validarDatos(nombre, apellido, dni, email, telefono, contrasenia, contrasenia2, saldo);
-
-        User user = new User();
+        Usuario user = new Usuario();
         user.setNombre(nombre);
         user.setApellido(apellido);
         user.setDni(contrasenia2);
@@ -39,23 +38,19 @@ public class UserService implements UserDetailsService {
         user.setContrasenia(new BCryptPasswordEncoder().encode(contrasenia));
         // modificar desde acreditacion del dinero
         user.setSaldo(saldo);
-
         userRepository.save(user);
         return user;
     }
 
     // Method to list All Users
-    public List<User> findAllUsers() throws MiException {
-        if (usuario.getRol().equals("ADMIN")) {
+    public List<Usuario> findAllUsers() throws MiException {
             return userRepository.findAll();
-        } else {
-            throw new MiException("No posee permisos para listar todos los usuarios");
         }
-    }
+    
 
     // Method to fetch a user by their ID
-    public User findUserById(Long id) throws MiException {
-        User user = userRepository.findById(id);
+    public Usuario findUserById(Long id) throws MiException {
+        Usuario user = userRepository.findById(id);
         if (user == null) {
             throw new MiException("el id fallo");
         } else {
@@ -66,7 +61,7 @@ public class UserService implements UserDetailsService {
     // Method to fetch by username
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        User user = userRepository.findByname(name);
+        Usuario user = userRepository.findByname(name);
         if (user == null) {
             throw new UsernameNotFoundException("el nombre ha fallado");
         } else {
@@ -76,11 +71,11 @@ public class UserService implements UserDetailsService {
     }
 
     // Method to Refresh Users
-    public User updateUserById(Long id, User userUpdated) {
+    public Usuario updateUserById(Long id, Usuario userUpdated) {
 
-        User user = userRepository.findById(id);
+        Usuario user = userRepository.findById(id);
 
-        // Actualizar las propiedades del User con los valores del User Updated
+        // Actualizar las propiedades del Usuario con los valores del Usuario Updated
         user.setNombre(userUpdated.getNombre());
         user.setApellido(userUpdated.getApellido());
         user.setEmail(userUpdated.getEmail());
@@ -96,18 +91,18 @@ public class UserService implements UserDetailsService {
 
     // Method to delete Users by id
     public void deleteUser(Long id) {
-        User user = userRepository.findById(id);
+        Usuario user = userRepository.findById(id);
         userRepository.delete(user);
     }
 
     // Method to fetch user by their mail
     /*
-     * public User login(String email, String password) {
-     * // Buscar al User por email
-     * User user = userRepository.findByEmail(email);
+     * public Usuario login(String email, String password) {
+     * // Buscar al Usuario por email
+     * Usuario user = userRepository.findByEmail(email);
      * 
      * if (user == null) {
-     * // User no encontrado
+     * // Usuario no encontrado
      * return null;
      * }
      * 
@@ -124,8 +119,8 @@ public class UserService implements UserDetailsService {
      */
     // Acción: Actualizar saldo
     /*
-     * public User updateSaldoById(Long id, Integer saldo) {
-     * User user = userRepository.findById(id);
+     * public Usuario updateSaldoById(Long id, Integer saldo) {
+     * Usuario user = userRepository.findById(id);
      * user.setSaldo(saldo);
      * return userRepository.save(user);
      * }
@@ -164,7 +159,7 @@ public class UserService implements UserDetailsService {
      * 
      * 
      * public void descargarVideo(Video video) {
-     * // Lógica to verificar si el User tiene suficiente saldo disponible y el
+     * // Lógica to verificar si el Usuario tiene suficiente saldo disponible y el
      * horario
      * // de descarga es válido
      * if (saldoDisponible.compareTo(video.getPrecio()) >= 0 &&
@@ -172,16 +167,16 @@ public class UserService implements UserDetailsService {
      * // Código to descargar el video
      * // Por ejemplo, puedes actualizar la lista de videos descargados y descontar
      * el
-     * // saldo del User
+     * // saldo del Usuario
      * } else {
-     * // Código to manejar casos en los que el User no cumple con los requisitos to
+     * // Código to manejar casos en los que el Usuario no cumple con los requisitos to
      * // descargar el video
      * }
      * }
      */
     // Acción: Ver lista de videos descargados
     public List<Video> verListaVideosDescargados() {
-        // Código to list la lista de videos descargados del User
+        // Código to list la lista de videos descargados del Usuario
         // Por ejemplo, puedes listla de la base de datos u otra fuente de datos
         // y devolverla como una lista de objetos de la clase Video
         return null;
