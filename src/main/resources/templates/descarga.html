@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Descarga de videos</title>
+</head>
+<body>
+    <h1>Descarga de videos</h1>
+    <form th:action="@{/descarga}" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" />
+        <br />
+        <label for="url">URL del video:</label>
+        <input type="text" id="url" name="url" />
+        <br />
+        <button type="submit">Descargar</button>
+    </form>
+</body>
+</html>
