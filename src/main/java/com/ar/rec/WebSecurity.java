@@ -1,9 +1,8 @@
 package com.ar.rec;
 
+import com.ar.dao.UsuarioDAO;
 import com.ar.servicios.UserService;
-import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -17,9 +16,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurity extends WebSecurityConfigurerAdapter {
     
-   @Autowired
-   @Qualifier("userService")
-    public UserService userService;
+    @Autowired
+    private UserService userService;
     
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
@@ -35,7 +33,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                         .antMatchers("/css/*", "/js/*", "/img/*", "/**")
                         .permitAll()
                 .and().formLogin()
-                        .loginPage("/ingresar")
+                        .loginPage("/login")
                         .loginProcessingUrl("/logincheck")
                         .usernameParameter("email")
                         .passwordParameter("password")

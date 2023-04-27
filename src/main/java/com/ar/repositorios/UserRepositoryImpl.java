@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Qualifier("userRepository")
 public abstract class UserRepositoryImpl implements JpaRepository<Usuario, Integer>, UserRepository {
 
     @PersistenceContext

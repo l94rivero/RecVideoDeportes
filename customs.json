@@ -1,8 +1,14 @@
 {
     "elements": {},
     "attributes": {
+        "integrity": {
+            "context": "link"
+        },
         "th:action": {
             "context": "form"
+        },
+        "th:href": {
+            "context": "a"
         }
     }
 }

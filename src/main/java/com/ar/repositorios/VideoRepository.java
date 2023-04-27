@@ -3,6 +3,7 @@ package com.ar.repositorios;
 import com.ar.entidades.Video;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Repository
