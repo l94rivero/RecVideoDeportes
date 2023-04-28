@@ -18,6 +18,10 @@
     </properties>
     <dependencies>
         
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
         
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -33,17 +37,17 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <scope>runtime</scope>
-        </dependency>
         
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
         </dependency>
         
         <dependency>
@@ -57,21 +61,18 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>5.5.0</version>
         </dependency>
 
         <!-- Spring Security Web -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>5.5.0</version>
         </dependency>
 
         <!-- Spring Security Config -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>5.5.0</version>
         </dependency>
 
         <!-- Opcional: Spring Security LDAP (si se necesita integración con LDAP) -->
@@ -94,7 +95,12 @@
             <artifactId>spring-security-oauth2-jose</artifactId>
             <version>5.5.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>2.0.2</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>

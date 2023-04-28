@@ -1,11 +1,13 @@
 package com.ar.servicios;
 
 import com.ar.Exception.MiException;
-import com.ar.dao.UsuarioDAO;
+import com.ar.dao.UsuarioDao;
 import com.ar.entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -13,13 +15,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 
-
-@Service
-public class UserService implements UserDetailsService {
+@Slf4j
+@Service("userDetailsService")
+public class UsuarioService implements UserDetailsService {
 
 
     private void validarDatos(String nombre, String apellido, Integer dni, String email, Integer telefono,
@@ -57,23 +60,20 @@ public class UserService implements UserDetailsService {
             throw new MiException("Las contraseñas ingresadas deben ser iguales");
         }
 
-        if (saldo.toString().isEmpty() || saldo == null) {
-            throw new MiException("Las contraseñas ingresadas deben ser iguales");
-        }
-
     }
 
   
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    @Transactional(readOnly=true)
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         
-        UsuarioDAO usuarioDao = new UsuarioDAO();
+        UsuarioDao usuarioDao = new UsuarioDao();
         
-        Usuario usuario = usuarioDao.findByName(email);
+        Usuario usuario = usuarioDao.findByName(username);
         
         if (usuario != null) {
             
-            List<GrantedAuthority> permisos = new ArrayList();
+            ArrayList<GrantedAuthority> permisos = new ArrayList<>();
             
             GrantedAuthority p = new SimpleGrantedAuthority("ROLE_"+ usuario.getRol());
             
@@ -87,7 +87,7 @@ public class UserService implements UserDetailsService {
             
             return new User(usuario.getEmail(), usuario.getContrasenia(),permisos);
         }else{
-            return null;
+            throw new UsernameNotFoundException(username);
         }
 
     }

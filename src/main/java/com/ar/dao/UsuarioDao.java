@@ -14,15 +14,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UsuarioDAO implements UserDetailsService{
+public class UsuarioDao implements UserDetailsService{
 
     private final UserRepository userRepository;
 
-    public UsuarioDAO() {
+    public UsuarioDao() {
         this.userRepository = null;
     }
 
-    public UsuarioDAO(UserRepository userRepository) {
+    public UsuarioDao(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
     
@@ -49,7 +49,7 @@ public class UsuarioDAO implements UserDetailsService{
     }
 
     @Override
-    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

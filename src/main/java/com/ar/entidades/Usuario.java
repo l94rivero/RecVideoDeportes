@@ -3,7 +3,6 @@ package com.ar.entidades;
 import java.io.Serializable;
 import java.util.*;
 import javax.persistence.*;
-
 import lombok.Data;
 
 @Entity
@@ -21,13 +20,15 @@ public class Usuario implements Serializable{
     private String telefono;
     private String contrasenia;
     private String contrasenia2;
-    private Integer saldo;
-    private String rol;
     
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany
+    @JoinColumn(name="id_usuario")
+    private List<Rol> roles;
+    
+    @OneToMany(mappedBy = "id_video")
     private List<Video> videos;
 
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "id_descarga")
     private List<Descargas> descargas;
     
     
@@ -37,5 +38,9 @@ public class Usuario implements Serializable{
     private final Set<String> roles = new HashSet<>();
     
      */
+
+    public String getRol() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

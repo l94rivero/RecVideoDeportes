@@ -56,7 +56,7 @@ public class VideoService {
         return videoRepository.save(video);
     }
     
-    public Video buscarVideoEnHorario(String date, Long usuarioId) {
+   /* public Video buscarVideoEnHorario(String date, Long usuarioId) {
         Video video = videoRepository.findByDate(date); // Buscar el video en la base de datos por horario
         if (video != null) { 
             Usuario usuario = userRepository.findById(usuarioId); // Buscar el usuario por su ID
@@ -70,7 +70,7 @@ public class VideoService {
             return null; // Si no se encuentra el video, devolver nulo
         }
     }
-
+*/
     private void validarDatos(String title, String description, Date hora, String url, Usuario usuario, Descargas descarga) throws MiException{
 
         // Validación del título
