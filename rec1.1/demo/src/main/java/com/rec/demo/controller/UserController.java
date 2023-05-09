@@ -29,26 +29,12 @@ public class UserController {
         return "registration.html";
     }
 
-    @GetMapping("/error")
-    public String error(){
-        return "error404.html";
-    }
-
     @PostMapping("/registro")
-    public String registro(@RequestParam String username,
-                            @RequestParam String password, 
-                            ModelMap modelo) throws MiExcepcion{
-        // try {
-            System.out.print("\n datos de usuario enviados desde el controller\n");
+    public String registro(@RequestParam String username,@RequestParam String password, ModelMap modelo) throws MiExcepcion{
 
-            //  Usuario u = new Usuario();
-            // u.setName(username);
-            // u.setPassword(password);
-            // System.out.print("\n CreateUser:"+u.getName()+ "//" + u.getPassword() +"\n");
-            
-            userService.createUser(username, password);
-            modelo.put("exito", "fue registrad@ exitosamente");
-
+        System.out.print("\n datos de usuario enviados desde el controller\n");            
+        userService.createUser(username, password);
+        modelo.put("exito", "fue registrad@ exitosamente");
         return "index.html";
     }
 }

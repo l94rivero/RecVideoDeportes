@@ -6,7 +6,6 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.rec.demo.entity.Usuario;
@@ -50,10 +49,8 @@ public class UserService {
         Usuario user = new Usuario();
 
         user.setName(username);
-        //user.setPassword(passwordEncoder.encode(password));
         user.setPassword(password);
-
-        System.out.print("\nUSUARIO:"+user.toString()+"\n");
+        //user.setPassword(passwordEncoder.encode(password));
 
         userRepository.save(user);
     }
