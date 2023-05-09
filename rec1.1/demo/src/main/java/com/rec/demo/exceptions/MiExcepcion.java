@@ -1,4 +1,4 @@
-package com.rec.exceptions;
+package com.rec.demo.exceptions;
 
 public class MiExcepcion extends Exception{
     
