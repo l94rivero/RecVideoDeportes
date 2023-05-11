@@ -12,10 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rec.demo.entity.Usuario;
 import com.rec.demo.repository.UserRepository;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @RestController
 @RequestMapping("/")
 public class PortalController {
   
+
   private UserRepository userRepository;
   
   @Autowired
@@ -23,24 +27,32 @@ public class PortalController {
     this.userRepository = userRepository;
   }
 
-  @GetMapping("/all")
+  @GetMapping("all")
   public @ResponseBody Iterable<Usuario> getAllUsers() {
     // This returns a JSON or XML with the users
     return userRepository.findAll();
   }
 
-  @GetMapping("/error")
+  @GetMapping("error")
   public String error(){
       return "error404.html";
   }
 
-  @GetMapping("/blog")
+  @GetMapping("blog")
   public String blog(){
       return "blog.html";
   }
 
-  @GetMapping("/{id}")
-  public Optional<Usuario> getUserById(@PathVariable int id) {
-    return userRepository.findById(id);
+  
+
+  @GetMapping("descarga")
+  public String paginaDescarga() {
+    return "descarga.html";
   }
+
+  // @GetMapping("{id}")
+  // public Optional<Usuario> getUserById(@PathVariable int id) {
+  //   return userRepository.findById(id);
+  // }
+
 }

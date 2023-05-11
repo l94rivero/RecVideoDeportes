@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pago y Descarga de Videos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Pago | REC</title>
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">REC</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Pago</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </head>
+
+<body>
+    <div class="container">
+        <h1>Pago y Descarga de Videos</h1>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title text-center">Realizar Pago</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="/pago/procesar" method="POST">
+                                <div class="form-group">
+                                    <label for="video">Video a descargar</label>
+                                    <select class="form-control" name="video" id="video">
+                                        <option value="video1">Video 1</option>
+                                        <option value="video2">Video 2</option>
+                                        <option value="video3">Video 3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="monto">Monto a pagar</label>
+                                    <input type="number" name="monto" id="monto" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Pagar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Descargar Video</h2>
+                <form th:action="@{/descargar}" method="post">
+                    <div class="form-group">
+                        <label for="video">Seleccione el video a descargar</label>
+                        <select class="form-control" id="video" name="video" required>
+                            <option value="">Seleccione un video</option>
+                            <option value="video1.mp4">Video 1</option>
+                            <option value="video2.mp4">Video 2</option>
+                            <option value="video3.mp4">Video 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Descargar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Importar MercadoPago Checkout -->
+    <script src="https://www.mercadopago.com/v2/security.js" view="checkout"></script>
+    <script src="https://www.mercadopago.com/v2/checkout.js"></script>
+    <script>
+        // Configurar MercadoPago Checkout
+        Mercadopago.setPublishableKey('TU_CLAVE_PUBLICA_DE_MERCADOPAGO');
+        Mercadopago.getIdentificationTypes();
+        Mercadopago.checkout({
+            preference: {
+                items: [
+                    {
+                        title: 'Video a descargar',
+                        quantity: 1,
+                        currency_id: 'ARS',
+                        unit_price: parseFloat(document.getElementById('monto').value)
+                    }
+                ],
+                payment_methods: {
+                    excluded_payment_methods: [
+                        { id: 'amex' }
+                    ],
+                    excluded_payment_types: [
+                        { id: 'atm' }
+                    ]
+                },
+                back_urls: {
+                    success: 'https://TU_PAGINA/recibido',
+                    failure: 'https://TU_PAGINA/error',
+                    pending: 'https://TU_PAGINA/pendiente'
+                },
+                auto_return: 'approved'
+            },
+            // Callback de respuesta de MercadoPago Checkout
+            // Redirigir a la página de descarga
+            function(response) {
+                window.location.href = 'https://TU_PAGINA/descarga';
+            }
+        });
+    </script>
+
+</body>
+<!-- Importamos las librerías de Bootstrap y de jQuery -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+     crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+     crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    crossorigin="anonymous"></script>
+</html>

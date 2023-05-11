@@ -10,25 +10,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" th:href="@{/css/style.css}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
-  <script th:href="@{/static/js/jquery.own.js}" defer></script>
   <title>REC</title>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-md  fixed-top maine-menu">
     <div class="container">
-      <button class="navbar-toggler ml-auto" data-target="#my-nav" id onclick="myFunction(this)" data-toggle="collapse">
-        <span class="bar1"></span> 
-        <span class="bar2"></span> 
-        <span class="bar3"></span> 
-      </button>
+      <button class="navbar-toggler ml-auto" data-target="#my-nav" onclick="myFunction(this)" data-toggle="collapse">
+        <span class="bar1"></span> <span class="bar2"></span> <span class="bar3"></span> </button>
       <div id="my-nav" class="collapse navbar-collapse">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active"> <a class="nav-link" href="#">Home</a> </li>
           <li class="nav-item"> <a class="nav-link" href="#about" tabindex="-1" aria-disabled="true">About</a></li>
-          <li class="nav-item"> <a class="nav-link" href="#activity" tabindex="-1" aria-disabled="true">Activity</a></li>
-          <li class="nav-item"> <a class="nav-link" href="#portfolio" tabindex="-1" aria-disabled="true">Portfolio</a></li>
-          <li class="nav-item"> <a class="nav-link" href="#testimonial" tabindex="-1"aria-disabled="true">Testimonial</a></li>
+          <li class="nav-item"> <a class="nav-link" href="#activity" tabindex="-1" aria-disabled="true">Activity</a>
+          </li>
+          <li class="nav-item"> <a class="nav-link" href="#portfolio" tabindex="-1" aria-disabled="true">Portfolio</a>
+          </li>
+          <li class="nav-item"> <a class="nav-link" href="#testimonial" tabindex="-1"
+              aria-disabled="true">Testimonial</a></li>
           <li class="nav-item"> <a class="nav-link" th:href=@{/blog} tabindex="-1" aria-disabled="true">Blog</a></li>
           <li class="nav-item"> <a class="nav-link" href="#contact" tabindex="-1" aria-disabled="true">Contact</a></li>
         </ul>
@@ -36,10 +35,11 @@
     </div>
   </nav>
   <div class="container-fluid fh5co-home-banner">
-    <div class="card"> <img class="card-img" src="/img/banner-rojo.jpg" alt="">
+    <div class="card"> <img class="card-img" src="/img/banner-img.jpg" alt="">
       <div class="card-img-overlay">
         <div class="center-text">
-          <h2 class="card-title">REC</h2>
+          <h2 class="card-title">A camera is the save button
+            for the mind’s eye</h2>
           <a href="#" class="btn">
             <svg width="201" height="51" viewBox="0 0 201 51">
               <defs>
@@ -52,7 +52,7 @@
                 </style>
                 <linearGradient id="linear-gradient" x1="140.508" y1="50.5" x2="60.492" y2="0.5"
                   gradientUnits="userSpaceOnUse">
-                  <stop offset="0" stop-color="#990000" />
+                  <stop offset="0" stop-color="#e90e65" />
                   <stop offset="1" stop-color="#fff" />
                 </linearGradient>
               </defs>
@@ -391,14 +391,13 @@
       </div>
     </div>
     <div class="copy pt-4 pb-4">
-      <p><a href="https://ldev.io/" target="_blank"> &copy; 2023 devwst</a> &nbsp; | &nbsp; Design by <a
-          href="https://ldev.io/" target="_blank">ldev.io</a> &nbsp; | &nbsp; All rights reserved</p>
+      <p><a href="https://freehtml5.co/" target="_blank"> &copy; 2023 devwst</a> &nbsp; | &nbsp; Design by <a
+          href="https://freehtml5.co/" target="_blank">ldev.io</a> &nbsp; | &nbsp; All rights reserved</p>
     </div>
   </footer>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script th:href="@{/static/js/jquery-3.3.1.slim.min.js}"></script>
-
   <script th:href="@{/static/js/popper.min.js}"></script>
   <script th:href="@{/static/js/bootstrap.min.js}"></script>
 

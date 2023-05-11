@@ -3,39 +3,38 @@ package com.rec.demo.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.rec.demo.entity.Usuario;
 import com.rec.demo.exceptions.MiExcepcion;
 import com.rec.demo.repository.UserRepository;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Service
-public class UserService {
+@Data
+public class UserService  {
 
-    
-    @Setter
-    @Getter
-    public UserRepository userRepository;    
+    public UserRepository userRepository;
 
-    // @Getter
-    // @Setter
-    // public PasswordEncoder passwordEncoder;
-
-    public UserService(UserRepository userRepository/*, PasswordEncoder passwordEncoder*/) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        // this.passwordEncoder = passwordEncoder;
     }
 
-    
-    
-	@Transactional
-    public List<Usuario> listarObrasSociales(){
+    @Transactional
+    public List<Usuario> listarObrasSociales() {
         List<Usuario> usuarios = new ArrayList<>();
         usuarios = (List<Usuario>) userRepository.findAll();
         return usuarios;
@@ -48,19 +47,48 @@ public class UserService {
 
         Usuario user = new Usuario();
 
-        user.setName(username);
-        user.setPassword(password);
-        //user.setPassword(passwordEncoder.encode(password));
+        user.setUsername(username);
+        // user.setPassword(password);
+        user.setPassword(new BCryptPasswordEncoder().encode(password));
 
         userRepository.save(user);
     }
+/*
+ 
+@Override
+public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    System.out.println("\n String loadUserByUsername ="+username+"\n");
 
+    Usuario usuario = userRepository.findByUsername(username);
+    System.out.println("\n Usuario findByUsername = "+usuario+"\n");
+    
 
-        // public Usuario saveUser(Usuario user) throws MiExcepcion {
-        //     if (userRepository.existsByUsername(user.getPassword())) {
-        //         throw new MiExcepcion("User with username '" + user.getName() + "' already exists");
-        //     }
-        //     return userRepository.save(user);
-        // }
-    }
+    if (usuario != null) {
+        
+        List<GrantedAuthority> permisos = new ArrayList<>();
+        
+        GrantedAuthority p = new SimpleGrantedAuthority("ROLE_"+ "ADMIN"); //todo: ENUM 
+        
+        permisos.add(p);
 
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        
+        HttpSession session = attr.getRequest().getSession(true);
+        
+        session.setAttribute("usuariosession", usuario);
+        
+        return new User(usuario.getUsername(), usuario.getPassword(),permisos);
+    
+    // Usuario usuario = new Usuario();
+    // System.out.println("\n"+username+"\n");
+    // if (userRepository.existsByUsername(username)) {
+    //     return User.builder()
+    //             .username(usuario.getUsername())
+    //             .password(usuario.getPassword())
+    //             .roles(usuario.getRol())
+    //             .build();
+    } else throw new UsernameNotFoundException("Usuario no encontrado");
+}
+
+ */
+}

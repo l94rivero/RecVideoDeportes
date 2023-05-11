@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.rec.demo.exceptions.MiExcepcion;
 import com.rec.demo.services.UserService;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
-    
+    @Getter
+    @Setter
     private UserService userService;
     
     @Autowired
@@ -33,7 +37,7 @@ public class UserController {
     public String registro(@RequestParam String username,@RequestParam String password, ModelMap modelo) throws MiExcepcion{
 
         System.out.print("\n datos de usuario enviados desde el controller\n");            
-        userService.createUser(username, password);
+        // userService.createUser(username, password);
         modelo.put("exito", "fue registrad@ exitosamente");
         return "index.html";
     }
