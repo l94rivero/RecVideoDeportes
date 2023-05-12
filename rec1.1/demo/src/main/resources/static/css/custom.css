@@ -77,12 +77,12 @@ h1.cover-heading {
 
 .social-media a {
   display: inline-block;
-  padding: 10px;
+  padding: 8px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, #ff005e, #000000);
+  background-image: linear-gradient(to right, #000000, #000000);
 }
 
 .social-media a i {
-  font-size: 20px;
+  font-size: 25px;
   color: white;
 }

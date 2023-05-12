@@ -9,9 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+
+@Data
 @Entity // This tells Hibernate to make a table out of this class
 public class Compra {
 
@@ -26,12 +27,8 @@ public class Compra {
     // @Column(name = "idusuario")
     // private Usuario usuario;
 
-    @Getter
-    @Setter
     private Integer monto;
 
-    @Getter
-    @Setter
     @Temporal(TemporalType.DATE)
     private Date fecha;
 

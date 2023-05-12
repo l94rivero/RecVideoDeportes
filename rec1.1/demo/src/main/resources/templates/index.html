@@ -19,13 +19,40 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous">
 
-  <title>Choose a Club</title>
+  <title>REC</title>
 </head>
 
 <body class="text-center">
 
   <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
+      <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+        <a class="navbar-brand" href="/">
+          <img src="/img/recv1.ico" width="100" height="80" alt="Icono">
+        </a>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="#busca">Clubes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+              aria-expanded="false">Usuario</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
+              <li><a class="dropdown-item" th:href="@{/user/registrar}">Register</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+
       <div class="inner text-left">
         <h1 class="masthead-brand">
           <a href="/">
@@ -36,11 +63,12 @@
     </header>
 
     <main role="main" class="inner cover">
-      <h1 class="cover-heading">Choose a Club</h1>
+      <h1 class="cover-heading">Elegir el club</h1>
 
+      <!--Form Buscador-->
       <form th:action="@{/#}" method="get" id="busca" class="search-form form-inline">
         <div class="input-group">
-          <input type="text" class="form-control search-form " placeholder="Search...">
+          <input type="text" class="form-control search-form " placeholder="BUSCAR...">
           <div class="input-group-append">
             <button type="submit" class="btn"><i class="fa fa-search "></i></button>
           </div>
@@ -50,47 +78,66 @@
       <div class="container my-5">
         <div class="row">
           <div class="col">
-            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-5 btn-lg explode-effect">Club A</a>
+            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-2 btn-lg explode-effect">Club A</a>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-5 btn-lg explode-effect">Club 2</a>
+            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-2 btn-lg explode-effect">Club B</a>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-5 btn-lg explode-effect">Club C</a>
+            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-2 btn-lg explode-effect">Club C</a>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-5 btn-lg explode-effect">Club 4</a>
+            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-2 btn-lg explode-effect">Club 4</a>
           </div>
         </div>
       </div>
+      <div class="lead">
+        <a href="#busca" class="mb-auto">Volver</a>
+      </div>
     </main>
-
-        <div class="social-media">
-            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <footer class="mastfoot mt-5 bg-black text-white">
+      <div class="container py-5">
+        <!--Contact-Card-->
+        <div class="row justify-content-center" id="contacto">
+          <div class="col-md-4">
+            <div class="card bg-success border-light">
+              <div class="card-body">
+                <h5 class="card-title text-white">Información de contacto</h5>
+                <p class="card-text text-white">
+                  Teléfono: (123) 456-7890<br>
+                  Correo electrónico: info@recvideodeportes.com
+                </p>
+                <div class="social-media">
+                  <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                  <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <hr class="bg-light my-5">
+        <a class="navbar-brand" href="/">
+          <img src="/img/heart.png" alt="">
+        </a>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>Copyright @ Ldev 2023,
+              Factory Dreams Groups, LLC - Todos los derechos reservados. </p>
+            <p> Follow ldev <a href="https://github.com/l94rivero"></a>on<a href="https://github.com/l94rivero">
+                @Github</a>.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-        <footer class="mastfoot mt-5">
-            <div class="lead">
-                <a href="#" class="btn btn-secondary mb-3">Volver</a>
-            </div>
-            <div class="inner">
-                <p>Copyright @ Ldev 2023,
-                    Factory Dreams Groups, LLC - Todos los derechos reservados. </p>
-                <p> Follow ldev <a href="https://github.com/l94rivero"></a> on<a href="https://github.com/l94rivero">
-                        @Github</a>.</p>
-            </div>
-        </footer>
-
-    </div>
 
 
     <!-- Bootstrap core JavaScript
@@ -101,7 +148,7 @@
     <script th:src="@{/js/popper.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
