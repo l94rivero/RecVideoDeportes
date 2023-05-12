@@ -2,7 +2,6 @@ package com.rec.demo.entity;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +11,6 @@ import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
-import com.rec.demo.entity.Usuario;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Compra {

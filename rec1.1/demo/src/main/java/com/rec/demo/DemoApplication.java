@@ -11,8 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 // @EnableJpaRepositories
 @SpringBootApplication(scanBasePackages = {"com.rec.demo.controller", "com.rec.demo.services", "com.rec.demo.repository"}, exclude = {DataSourceAutoConfiguration.class })

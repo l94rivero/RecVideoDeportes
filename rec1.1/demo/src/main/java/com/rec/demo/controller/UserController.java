@@ -37,7 +37,7 @@ public class UserController {
     public String registro(@RequestParam String username,@RequestParam String password, ModelMap modelo) throws MiExcepcion{
 
         System.out.print("\n datos de usuario enviados desde el controller\n");            
-        // userService.createUser(username, password);
+        userService.createUser(username, password);
         modelo.put("exito", "fue registrad@ exitosamente");
         return "index.html";
     }

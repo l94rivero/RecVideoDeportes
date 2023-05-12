@@ -1,0 +1,88 @@
+body {
+  background: rgb(226, 72, 0);
+}
+
+.bg-white {
+  background-image: url("fondo-blanco.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.masthead-brand a img {
+  margin-right: 10px;
+}
+
+.explode-effect {
+  border-color: white;
+  color: white;
+  background-color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.explode-effect:hover {
+  background-color: rgb(60, 255, 0);
+  color: black;
+  transform: scale(1.1);
+}
+h1.cover-heading {
+  margin-bottom: 50px;
+}
+
+.search-form {
+  border-bottom: 10px solid;
+  border-top: 10px solid;
+  background: linear-gradient(to right, #ffffff, #ffffff2d);
+  padding: 8px;
+  padding-left: 25px;
+  border-radius: 25px;
+  max-width: 300px;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+.search-form .form-control {
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.301);
+}
+
+.search-form .form-control:focus {
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+}
+
+.search-form button {
+  background-color: transparent;
+  color: #000000;
+  border: none;
+  outline: none;
+}
+
+.search-form button:hover {
+  background-color: transparent;
+  color: #000000;
+}
+
+.social-media a {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, #ff005e, #000000);
+}
+
+.social-media a i {
+  font-size: 20px;
+  color: white;
+}
