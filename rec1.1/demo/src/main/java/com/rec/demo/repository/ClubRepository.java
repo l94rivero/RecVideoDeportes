@@ -9,7 +9,7 @@ import com.rec.demo.entity.Club;
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
-public abstract interface SearchRepository extends JpaRepository<Club, String> {
+public abstract interface ClubRepository extends JpaRepository<Club, String> {
     
     public Club findByName(@Param("nombre")String nombre);
 

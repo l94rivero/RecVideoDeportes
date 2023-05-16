@@ -7,22 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rec.demo.entity.Club;
-import com.rec.demo.entity.Usuario;
-import com.rec.demo.repository.UserRepository;
-import com.rec.demo.services.SearchService;
+import com.rec.demo.services.ClubService;
 
 @RestController
 @RequestMapping("/buscador")
 public class SearchController {
 
-    private SearchService searchService;
+    private ClubService searchService;
 
     @Autowired
-    public void SearchService (SearchService searchService){
+    public void SearchService (ClubService searchService){
         this.searchService = searchService;
     }
 

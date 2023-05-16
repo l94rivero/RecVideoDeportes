@@ -7,18 +7,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
-
   <!-- Bootstrap core CSS -->
   <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-
   <!-- Custom styles for this template -->
   <link th:href="@{/css/custom.css}" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous">
-
   <title>REC</title>
 </head>
 
@@ -26,19 +22,20 @@
 
   <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
     <header class="masthead mb-auto">
-      <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
+      <!--NavBar-->
+      <nav id="navbar-example2" class="navbar bg-white px-3 mb-3  fixed-top">
         <a class="navbar-brand" href="/">
-          <img src="/img/recv1.ico" width="100" height="80" alt="Icono">
+          <img src="/img/recv1.ico" width="120" height="100" alt="Icono">
         </a>
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link" href="#busca">Clubes</a>
+            <a class="nav-link text-black" th:href="@{/club/seleccion}">Clubes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contacto">Contacto</a>
+            <a class="nav-link text-black" href="#contacto">Contacto</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+            <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown" href="#" role="button"
               aria-expanded="false">Usuario</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
@@ -51,67 +48,40 @@
           </li>
         </ul>
       </nav>
-
-
-      <div class="inner text-left">
-        <h1 class="masthead-brand">
-          <a href="/">
-            <img src="/img/recv1.svg" alt="Logo">
-          </a>
-        </h1>
+      <!--NavBar-->
+      <!--LOGO REC-->
+      <div class="inner text-opacity-50">
+        <a href="/"><img src="/img/recv1.svg" alt="Logo"></a>
       </div>
     </header>
+    <!--LOGO REC-->
 
-    <main role="main" class="inner cover">
-      <h1 class="cover-heading">Elegir el club</h1>
-
-      <!--Form Buscador-->
-      <form th:action="@{/#}" method="get" id="busca" class="search-form form-inline">
-        <div class="input-group">
-          <input type="text" class="form-control search-form " placeholder="BUSCAR...">
-          <div class="input-group-append">
-            <button type="submit" class="btn"><i class="fa fa-search "></i></button>
-          </div>
+    <!--Body-->
+    <main role="main" class="">
+      <div class="card">
+        <div class="d-flex flex-column align-items-center p-3">
+          <h1 class="cover-heading">ELEGI EL CLUB</h1>
         </div>
-      </form>
-
-      <div class="container my-5">
-        <div class="row">
-          <div class="col">
-            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-2 btn-lg explode-effect">Club A</a>
-          </div>
+        <div class="d-flex flex-column align-items-center p-3">
+          <a th:href="@{/?club=parque}" class="btn btn-primary custom-btn">PARQUE</a>
+          <a th:href="@{/?club=predio}" class="btn btn-primary custom-btn">PREDIO SAN JOSE</a>
         </div>
-        <div class="row">
-          <div class="col">
-            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-2 btn-lg explode-effect">Club B</a>
-          </div>
+        <div class="lead text">
+          <a href="#busca" class="mb-auto">Volver</a>
         </div>
-        <div class="row">
-          <div class="col">
-            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-2 btn-lg explode-effect">Club C</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <a th:href="@{/?{club.name}}" class="btn btn-outline-dark my-2 btn-lg explode-effect">Club 4</a>
-          </div>
-        </div>
-      </div>
-      <div class="lead">
-        <a href="#busca" class="mb-auto">Volver</a>
-      </div>
     </main>
+
     <footer class="mastfoot mt-5 bg-black text-white">
       <div class="container py-5">
-        <!--Contact-Card-->
         <div class="row justify-content-center" id="contacto">
           <div class="col-md-4">
-            <div class="card bg-success border-light">
+            <!--Contact-Card-->
+            <div class="bg-secondary border-light">
               <div class="card-body">
                 <h5 class="card-title text-white">Información de contacto</h5>
                 <p class="card-text text-white">
-                  Teléfono: (123) 456-7890<br>
-                  Correo electrónico: info@recvideodeportes.com
+                  (123) 456-7890<br>
+                  info@recvideodeportes.com
                 </p>
                 <div class="social-media">
                   <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -121,6 +91,7 @@
                 </div>
               </div>
             </div>
+            <!--Contact-Card-->
           </div>
         </div>
         <hr class="bg-light my-5">

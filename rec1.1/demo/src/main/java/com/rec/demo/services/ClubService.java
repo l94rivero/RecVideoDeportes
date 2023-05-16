@@ -10,24 +10,24 @@ import org.springframework.stereotype.Service;
 import com.rec.demo.entity.Cancha;
 import com.rec.demo.entity.Club;
 import com.rec.demo.exceptions.MiExcepcion;
-import com.rec.demo.repository.SearchRepository;
+import com.rec.demo.repository.ClubRepository;
 
 import lombok.Data;
 
 @Service
 @Data
-public class SearchService {
+public class ClubService {
 
-    public SearchRepository searchRepository;
+    public ClubRepository clubRepository;
 
-    public SearchService(SearchRepository searchRepository) {
-        this.searchRepository = searchRepository;
+    public ClubService(ClubRepository clubRepository) {
+        this.clubRepository = clubRepository;
     }
 
     @Transactional
     public List<Club> listarClubs() {
         List<Club> clubs = new ArrayList<>();
-        clubs = (List<Club>) searchRepository.findAll();
+        clubs = (List<Club>) clubRepository.findAll();
         return clubs;
     }
 
@@ -41,6 +41,6 @@ public class SearchService {
         club.setName(name);
         //club.setCanchas(canchas);
         
-        searchRepository.save(club);
+        clubRepository.save(club);
     }
 }
