@@ -8,118 +8,119 @@
   <meta name="author" content="">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
   <!-- Bootstrap core CSS -->
-  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
-  <link th:href="@{/css/custom.css}" rel="stylesheet">
+  <link href="../static/css/custom.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     crossorigin="anonymous">
-  <title>REC</title>
+  <title>Rec - Video deportes
+  </title>
 </head>
 
-<body class="text-center">
-
-  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-      <!--NavBar-->
-      <nav id="navbar-example2" class="navbar bg-white px-3 mb-3  fixed-top">
+<body>
+  <!--Navbar-->
+  <div class="navbar">
+    <nav id="header-nav" class="navbar navbar-expand-sm bg-white  fixed-top">
+      <div class="container-fluid">
+        <!--LOGO-->
         <a class="navbar-brand" href="/">
-          <img src="/img/recv1.ico" width="120" height="100" alt="Icono">
+          <img src="../static/img/recv3.jpg" alt="Icono">
         </a>
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class="nav-link text-black" th:href="@{/club/seleccion}">Clubes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-black" href="#contacto">Contacto</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown" href="#" role="button"
-              aria-expanded="false">Usuario</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
-              <li><a class="dropdown-item" th:href="@{/user/registrar}">Register</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <!--NavBar-->
-      <!--LOGO REC-->
-      <div class="inner text-opacity-50">
-        <a href="/"><img src="/img/recv1.svg" alt="Logo"></a>
-      </div>
-    </header>
-    <!--LOGO REC-->
 
-    <!--Body-->
-    <main role="main" class="">
-      <div class="card">
-        <div class="d-flex flex-column align-items-center p-3">
-          <h1 class="cover-heading">ELEGI EL CLUB</h1>
-        </div>
-        <div class="d-flex flex-column align-items-center p-3">
-          <a th:href="@{/?club=parque}" class="btn btn-primary custom-btn">PARQUE</a>
-          <a th:href="@{/?club=predio}" class="btn btn-primary custom-btn">PREDIO SAN JOSE</a>
-        </div>
-        <div class="lead text">
-          <a href="#busca" class="mb-auto">Volver</a>
-        </div>
-    </main>
-
-    <footer class="mastfoot mt-5 bg-black text-white">
-      <div class="container py-5">
-        <div class="row justify-content-center" id="contacto">
-          <div class="col-md-4">
-            <!--Contact-Card-->
-            <div class="bg-secondary border-light">
-              <div class="card-body">
-                <h5 class="card-title text-white">Información de contacto</h5>
-                <p class="card-text text-white">
-                  (123) 456-7890<br>
-                  info@recvideodeportes.com
-                </p>
-                <div class="social-media">
-                  <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-                  <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
-                </div>
-              </div>
-            </div>
-            <!--Contact-Card-->
-          </div>
-        </div>
-        <hr class="bg-light my-5">
-        <a class="navbar-brand" href="/">
-          <img src="/img/heart.png" alt="">
-        </a>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p>Copyright @ Ldev 2023,
-              Factory Dreams Groups, LLC - Todos los derechos reservados. </p>
-            <p> Follow ldev <a href="https://github.com/l94rivero"></a>on<a href="https://github.com/l94rivero">
-                @Github</a>.</p>
-          </div>
+        <!-- Boton del menu colapsable-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+          aria-expanded="false" aria-label="toggle navigation">
+          <span class="navbar-toggler-icon ">
+          </span>
+        </button>
+        <!-- elementos del menu colapsable-->
+        <div class="navbar navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-dark active" th:href="@{/club/seleccion}">Clubes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" th:href="@{/contacto}">Contacto</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">Usuario</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
+                <li><a class="dropdown-item" th:href="@{/user/registrar}">Register</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
+    </nav>
+  </div>
+
+  <!--Img Central logo-->
+  <div class="text-center m-0 p-0">
+    <a href="../templates/index.html"><img src="../static/img/recv1.svg" alt="Logo"></a> <!--LOGO REC-->
+  </div>
+
+  <div class="d-grid gap-2 col-6 mx-auto mb-5">
+    <a th:href="@{/club/seleccion}" class="btn btn-dark custom-btn">#Clubes</a>
+    <a th:href="@{/club/contacto}" class="btn btn-dark custom-btn">#Contacto</a>
+  </div>
 
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script th:src="@{/js/jquery-3.3.1.slim.min.js}"><\/script>')</script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"></script>
 </body>
+<footer class="bg-light text-center text-white">
+
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i
+          class="fab fa-facebook-f"></i></a>
+
+      <!-- Twitter -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i
+          class="fab fa-twitter"></i></a>
+
+      <!-- Google -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="#!" role="button"><i
+          class="fab fa-google"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i
+          class="fab fa-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i
+          class="fab fa-linkedin-in"></i></a>
+      <!-- Github -->
+      <a class="btn text-white btn-floating m-1" style="background-color: #333333;" href="#!" role="button"><i
+          class="fab fa-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script th:src="@{/js/jquery-3.3.1.slim.min.js}"><\/script>')</script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+  crossorigin="anonymous"></script>
 
 </html>

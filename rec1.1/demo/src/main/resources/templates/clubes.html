@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 
 <head>
     <meta charset="utf-8">
@@ -8,9 +8,9 @@
     <meta name="author" content="">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
     <!-- Bootstrap core CSS -->
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="..static/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link th:href="@{/css/custom.css}" rel="stylesheet">
+    <link href="../static/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
@@ -18,81 +18,125 @@
     <title>REC</title>
 </head>
 
-<body>
-    <header class="masthead mb-auto">
-        <!--NavBar-->
-        <nav id="navbar-example2" class="navbar navbar-expand-lg navbar-light bg-white fixed-top custom-navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img src="/img/recv1.ico" width="120" height="100" alt="Icono">
-                </a>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link text-black" th:href="@{/club/seleccion}">Clubes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-black" th:href="@{/#contacto}">Contacto</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-black" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-expanded="false">Usuario</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
-                            <li><a class="dropdown-item" th:href="@{/user/registrar}">Register</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
+<!--NavBar-->
+<nav id="header-nav" class="navbar navbar-expand-sm bg-white px-5 mb-5  fixed-top">
+
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="/">
+            <img src="../static/img/recv3.jpg" alt="Icono">
+        </a>
+        <!-- boton del menu-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+            aria-expanded="false" aria-label="toggle navigation">
+            <span class="navbar-toggler-icon ">
+            </span>
+        </button>
+
+        <!-- elementos del menu colapsable-->
+        <div class="navbar" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-dark active" th:href="@{/club/seleccion}">Clubes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" th:href="@{/contacto}">Contacto</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false">Usuario</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
+                        <li><a class="dropdown-item" th:href="@{/user/registrar}">Register</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<!--Body-->
+
+<body class="">
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+
+        <div class="text-center">
+            <div class="">
+                <h5>Elegi tu club!</h5>
             </div>
-        </nav>
-        <!--NavBar-->
-    </header>
-    <!--Body-->
-    <body>
-        <div class="container-fluid d-flex flex-column vh-100">
-            <div class="row flex-grow-1">
-                <div class="col center-content">
-                    <div class="d-flex flex-column align-items-center p-3">
-                        <h1 class="cover-heading">ELEGI EL CLUB</h1>
-                    </div>
-                    <div class="d-flex flex-column align-items-center p-3">
-                        <a th:href="@{/club/seleccion/?club=parque}" class="btn btn-primary custom-btn">PARQUE</a>
-                        <a th:href="@{/club/seleccion/?club=predio}" class="btn btn-primary custom-btn">PREDIO SAN
-                            JOSE</a>
-                    </div>
-                </div>
-                <div class="lead text">
-                    <a href="/" class="mb-auto">Volver</a>
-                </div>
+            <div class="card-body">
+                <a th:href="@{/club/seleccion/?club=parque}" class="btn btn-primary custom-btn">PARQUE</a>
+                <a th:href="@{/club/seleccion/?club=predio}" class="btn btn-primary custom-btn">PREDIO SANJOSE</a>
             </div>
         </div>
 
-    </body>
-    <footer class="footer mt-5 bg-black text-white">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>Copyright @ Ldev 2023,
-                    Factory Dreams Groups, LLC - Todos los derechos reservados. </p>
-                <p> Follow ldev <a href="https://github.com/l94rivero"></a>on<a href="https://github.com/l94rivero">
-                        @Github</a>.</p>
-            </div>
-        </div>
-    </footer>
 
 
+    </div>
 
-    <!-- Bootstrap core JavaScript
-          ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script th:src="@{/js/jquery-3.3.1.slim.min.js}"><\/script>')</script>
-    <script th:src="@{/js/popper.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+
 </body>
+<footer class="bg-light text-center text-white fixed-bottom">
+    <!-- Grid container -->
+    <div class="container p-2 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-2">
+            <!-- Facebook -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i
+                    class="fab fa-facebook-f"></i></a>
+
+            <!-- Twitter -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i
+                    class="fab fa-twitter"></i></a>
+
+            <!-- Google -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #dd4b39;" href="#!" role="button"><i
+                    class="fab fa-google"></i></a>
+
+            <!-- Instagram -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="#!" role="button"><i
+                    class="fab fa-instagram"></i></a>
+
+            <!-- Linkedin -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+            <!-- Github -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #333333;" href="#!" role="button"><i
+                    class="fab fa-github"></i></a>
+            <!-- Section: Social media -->
+        </section>
+    </div>
+    <section class="">
+        <div class="" style="background-color: #bebebe;">
+            <div class="container p-2 pb-3">
+                <!-- Grid container splitted -->
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-6 ">
+                            <span class="me-3">Registrarse Gratis</span>
+                            <a class="link-light" href="@{/login}">Login!</a></li>
+                        </div>
+                        <div class="col-6">
+                            © 2023 Copyright:
+                            <a class="text-white" href="https://github.com/l94rivero">ldev</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script th:src="@{/js/jquery-3.3.1.slim.min.js}"><\/script>')</script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
 
 </html>
