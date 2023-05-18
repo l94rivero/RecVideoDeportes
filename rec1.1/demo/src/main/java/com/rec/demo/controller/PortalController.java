@@ -21,13 +21,6 @@ import com.rec.demo.repository.UserRepository;
 public class PortalController {
 
   private UserRepository userRepository;
-  // private ClubRepository clubRepository;
-
-  // @Autowired
-  // public void clubRepository (ClubRepository clubRepository){
-  //   this.clubRepository = clubRepository;
-  // }
-
 
   @Autowired
   public void userRepository(UserRepository userRepository) {
@@ -45,6 +38,10 @@ public class PortalController {
     return "contacto.html";
   }
 
+  @GetMapping("ayuda")
+    public String help(){
+      return "ayuda.html";
+    }
 
   // @GetMapping("?club=parque")
   // public @ResponseBody Iterable<Club> clubes() {
