@@ -16,13 +16,12 @@ import lombok.Data;
 public class Usuario {
 
   @Id
-
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   // @Column(name = "idusuario")
   private Long id;
 
   private String username;
-  
+
   private String email;
 
   private String password;
@@ -30,9 +29,12 @@ public class Usuario {
   @Enumerated(EnumType.STRING)
   private Rol rol;
 
-  //@OneToMany
+  // @OneToMany
   // @Column(name = "idcompra")
   // private Compra compra;
 
-}
+  // @ManyToMany
+  // @Column(name = "idvideo")
+  // private Video video;
 
+}

@@ -16,4 +16,12 @@ public class Video {
     private Long id;
 
     private String nombre;
+
+    // @ManyToMany
+    // @Column(name = "idusuario")
+    // private Usuario usuario;
+
+    // @ManyToOne
+    // @Column(name = "idcancha")
+    // private Cancha cancha;
 }

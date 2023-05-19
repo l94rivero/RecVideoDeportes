@@ -1,6 +1,5 @@
 package com.rec.demo.entity;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,5 +17,7 @@ public class Club {
 
     private String name;
 
-    //private List<Cancha> canchas;
+    // @OneToMany
+    // @Column(name = "idcanchas")
+    // private List<Cancha> canchas;
 }

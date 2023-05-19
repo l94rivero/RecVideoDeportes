@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Página de Ayuda</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body class="container d-flex align-items-center justify-content-center vh-100">
+    <header>
+        <nav id="header-nav" class="navbar navbar-expand-sm bg-white px-5 mb-2  fixed-top">
+    
+            <div class="container-fluid">
+    
+                <a class="navbar-brand" href="/">
+                    <img src="/img/recv3.jpg" alt="Icono">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                    aria-expanded="false" aria-label="toggle navigation">
+                    <span class="navbar-toggler-icon ">
+                    </span>
+                </button>
+                <!-- elementos del menu colapsable-->
+                <div class="navbar" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark active" th:href="@{/}">Volver 
+                                <img src="/img/return.png" alt="clubes" height="32" width="32">
+                            </a>
+    
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" th:href="@{/contacto}">Contacto
+                                <img src="/img/contact.png" alt="contact" height="32" width="32">
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown" href="#" role="button"
+                                aria-expanded="false">Usuario
+                                <img id="user-image" src="/img/user.png" alt="Imagen de usuario" height="32" width="32">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
+                                <li><a class="dropdown-item" th:href="@{/user/registrar}">Register</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" th:href="@{/logout}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+    
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-5 align-items-start  justify-content-start">
+        
+        <h1>Página de Ayuda</h1>
+        <p>¡Bienvenido a nuestra página de ayuda! Aquí encontrarás información útil y respuestas a preguntas frecuentes.
+        </p>
+
+        <h3>Preguntas Frecuentes</h3>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Pregunta 1: ¿Cómo puedo cambiar mi contraseña?
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Para cambiar tu contraseña, sigue los siguientes pasos: ...
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Pregunta 2: ¿Cómo puedo actualizar mi información de perfil?
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Para actualizar tu información de perfil, sigue los siguientes pasos: ...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agrega más preguntas frecuentes aquí -->
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

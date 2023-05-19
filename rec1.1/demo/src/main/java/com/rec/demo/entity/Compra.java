@@ -11,7 +11,6 @@ import javax.persistence.TemporalType;
 
 import lombok.Data;
 
-
 @Data
 @Entity // This tells Hibernate to make a table out of this class
 public class Compra {
@@ -21,9 +20,7 @@ public class Compra {
     // @Column(name = "idcompra")
     private Long id;
 
-    // @Getter
-    // @Setter
-    // @OneToMany
+    // @ManyToOne
     // @Column(name = "idusuario")
     // private Usuario usuario;
 
@@ -32,4 +29,7 @@ public class Compra {
     @Temporal(TemporalType.DATE)
     private Date fecha;
 
+    // @OneToOne
+    // @Column(name = "idvideo")
+    // private Video video;
 }

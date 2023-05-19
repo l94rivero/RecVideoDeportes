@@ -23,5 +23,7 @@ public class Cancha {
 
     private Date hora;
 
+    // @OneToMany
+    // @Column(name = "idvideo")
     //private Video video;
 }

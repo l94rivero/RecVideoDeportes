@@ -1,19 +1,12 @@
 package com.rec.demo.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.rec.demo.entity.Cancha;
-import com.rec.demo.entity.Club;
 import com.rec.demo.entity.Usuario;
-import com.rec.demo.repository.ClubRepository;
 import com.rec.demo.repository.UserRepository;
 
 @Controller
@@ -33,6 +26,11 @@ public class PortalController {
     return userRepository.findAll();
   }
 
+  @GetMapping("error")
+  public String error() {
+    return "error404.html";
+  }
+  
   @GetMapping("contacto")
   public String contact() {
     return "contacto.html";
@@ -42,6 +40,13 @@ public class PortalController {
     public String help(){
       return "ayuda.html";
     }
+
+
+  
+  @GetMapping("precios")
+  public String pricing(){
+    return "precios.html";
+  }
 
   // @GetMapping("?club=parque")
   // public @ResponseBody Iterable<Club> clubes() {
